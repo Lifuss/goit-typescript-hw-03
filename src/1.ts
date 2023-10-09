@@ -5,8 +5,7 @@
 */
 
 class Student {
-  // не вказав public бо вважаю що public іде по замовчуванню
-  constructor(name: string, age: number, grade: string) {}
+  constructor(public name: string, public age: number, public grade: string) {}
 }
 
 export {};

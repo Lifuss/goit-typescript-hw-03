@@ -13,8 +13,11 @@ class Person {
 }
 
 abstract class House {
+  protected door: boolean = false;
   private tenants: Person[] = [];
-  constructor(protected key: Key, public door: boolean) {}
+
+  constructor(protected key: Key) {}
+
   comeIn(person: Person): void {
     if (this.door) {
       this.tenants.push(person);
@@ -24,11 +27,7 @@ abstract class House {
 }
 
 class MyHouse extends House {
-  constructor(key: Key) {
-    super(key, false);
-  }
   openDoor(key: Key): void {
-    // я думаю що щось напартачив з рандомом, адже завжди буде одинакові значення, бо екземпляр класу key один
     if (key.getSignature() === this.key.getSignature()) {
       this.door = true;
     }
